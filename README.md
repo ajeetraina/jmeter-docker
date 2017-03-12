@@ -40,7 +40,7 @@ Login to master node and pull the repository:
 
 It will push jmeter-master to the master node and jmeter-server to the slave nodes and make it ready to start load using the external JMX file.
 
-              root@master:~# docker service ls
+              @master:~$ docker service ls
               ID            NAME         MODE        REPLICAS  IMAGE
               mlffd5djek3t  myjm_slave   replicated  3/3       ajeetraina/jmeter-server:latest
               rv1r3cjvzkg3  myjm_master  replicated  1/1       ajeetraina/jmeter-master:latest
