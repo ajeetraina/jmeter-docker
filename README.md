@@ -43,6 +43,13 @@ It will push jmeter-master to the master node and jmeter-server to the slave nod
 <b> Pushing the JMX file into the container</b>
 
        $docker exec -i <container-running-on-master-node> sh -c 'cat > /jmeter/apache-jmeter-2.13/bin/jmeter-docker.jmx' < jmeter-docker.jmx
+       
+<b> Starting the Load testing
+
+      $docker exec -it <container-on-master-node> bash
+      root@4954e3ef40f6:/#cd /jmeter/apache-jmeter-2.13/bin
+      $./jmeter -n -t jmeter-docker.jmx -R<list of containers running on slave nodes seperated by commas)
+       
 
 # Handful Commands 
 
