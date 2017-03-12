@@ -40,6 +40,15 @@ Login to master node and pull the repository:
 
 It will push jmeter-master to the master node and jmeter-server to the slave nodes and make it ready to start load using the external JMX file.
 
+<b> Pushing the JMX file into the container</b>
+
+       $docker exec -i <container-running-on-master-node> sh -c 'cat > /jmeter/apache-jmeter-2.13/bin/jmeter-docker.jmx' < jmeter-docker.jmx
+
+<b> Handful Commands </b>
+
+<b> Listing the Slave IPs </b>
+sudo docker inspect --format '{{ .Name }} => {{ .NetworkSettings.IPAddress }}' $(sudo docker ps -a -q)
+
 
 
 
