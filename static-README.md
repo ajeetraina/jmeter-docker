@@ -13,7 +13,7 @@ In case you want to generate enough load so that the System Under test is stress
 
                 
                  
-                root@ubuntu4:~# docker network create -d macvlan --subnet=100.101.5.0/24 --gateway=100.101.5.1 -o parent=virtual0 macvlan0
+                root@ubuntu4:~# docker network create -d macvlan --subnet=10.91.15.0/24 --gateway=10.91.15.1 -o parent=virtual0 macvlan0
                  26bc952662e118fa855add784b65b53f4ca24c44a3b36af32819e89a62bc5f09
                   
                   root@ubuntu4:~# docker network ls
@@ -22,6 +22,6 @@ In case you want to generate enough load so that the System Under test is stress
     
 <b> Run the below command to start the container which uses Macvlan:</b>
 
-                 $docker run -dit --net=macvlan0  --name slave01 vinsdocker/jmserver /bin/bash
+                 $docker run -dit --net=macvlan0  --name slave01 ajeetraina/jmeter-server /bin/bash
 
                   
