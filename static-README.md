@@ -9,7 +9,7 @@ In case you want to generate enough load so that the System Under test is stress
 
 <b> On Master:</b>
 
-                root@ubuntu4:~#ip link add virtual0 link eth0 type macvlan mode bridge
+                root@ubuntu4:~#ip link add virtual0 link eno1 type macvlan mode bridge
 
                 
                  
