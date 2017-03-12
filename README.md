@@ -47,7 +47,8 @@ It will push jmeter-master to the master node and jmeter-server to the slave nod
 <b> Handful Commands </b>
 
 <b> Listing the Slave IPs </b>
-sudo docker inspect --format '{{ .Name }} => {{ .NetworkSettings.IPAddress }}' $(sudo docker ps -a -q)
+
+       $ docker inspect --format '{{ .Name }} => {{ .NetworkSettings.IPAddress }}' $(sudo docker ps -a -q)
 
 
 
