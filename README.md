@@ -7,24 +7,25 @@
 2. Setting up Swarm Mode Cluster( running atleast 1 master and n-number of Slave Nodes)
 3. Installing Docker Compose on the master node
 
-1. Installing Docker 17.03 on all the cluster of nodes:
+<b>1. Installing Docker 17.03 on all the cluster of nodes:</b>
 
-$curl -sSL https://get.docker.com/ | sh
+                          $curl -sSL https://get.docker.com/ | sh
 
-2. Setting up Swarm Mode Cluster:
+<b>2. Setting up Swarm Mode Cluster:</b>
 
-On Master Node:
+<b>On Master Node:</b>
 
 $docker swarm init --listen-addr <master-ip>:2377 --advertise-addr <master-ip>:2377
 
-On Slave Node:
+<b>On Slave Node:</b>
 
 $docker swarm join --token <TOKEN> master-ip  <-- Run this command on all the slave nodes
 
-3. Installing Docker Compose on the master node:
+<b>3. Installing Docker Compose on the master node:<b>
 
-#curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-#chmod +x /usr/local/bin/docker-compose
+            $curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local 
+              /bin/docker-compose
+              $chmod +x /usr/local/bin/docker-compose
 
 <b> Pulling the Repository </b>
 
