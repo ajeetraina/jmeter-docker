@@ -45,7 +45,16 @@ It will push jmeter-master to the master node and jmeter-server to the slave nod
               mlffd5djek3t  myjm_slave   replicated  3/3       ajeetraina/jmeter-server:latest
               rv1r3cjvzkg3  myjm_master  replicated  1/1       ajeetraina/jmeter-master:latest
 
+Let us verify these containers on both the nodes:
 
+          @master:~$ docker ps
+          CONTAINER ID        IMAGE                                                                                                     
+          COMMAND             CREATED             STATUS              PORTS               NAMES
+          4954e3ef40f6        ajeetraina/jmeter-master@sha256:1ad38973587725480e76a8914463c674ca95ddfe32e180e4695b8f9150c34981       
+          "/bin/bash"         2 hours ago         Up 2 hours          60000/tcp           myjm_master.1.bz2r7rrdrzomqwv56dpxi0m08
+
+Use the same command to verify on the slave nodes.
+ 
 
 <b> Pushing the JMX file into the container</b>
 
