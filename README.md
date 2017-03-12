@@ -44,13 +44,16 @@ It will push jmeter-master to the master node and jmeter-server to the slave nod
 
        $docker exec -i <container-running-on-master-node> sh -c 'cat > /jmeter/apache-jmeter-2.13/bin/jmeter-docker.jmx' < jmeter-docker.jmx
 
-<b> Handful Commands </b>
+# Handful Commands 
 
 <b> Listing the Slave IPs </b>
 
        $ docker inspect --format '{{ .Name }} => {{ .NetworkSettings.IPAddress }}' $(sudo docker ps -a -q)
 
 
+<b> Stopping all the containers in a single shot </b>
+
+       $docker stop $(docker ps -a -q)
 
 
 
