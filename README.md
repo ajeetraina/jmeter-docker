@@ -21,7 +21,7 @@
 
               $docker swarm join --token <TOKEN> master-ip  <-- Run this command on all the slave nodes
 
-<b>3. Installing Docker Compose on the master node:<b>
+<b>3. Installing Docker Compose on the master node:</b>
 
             $curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local 
               /bin/docker-compose
