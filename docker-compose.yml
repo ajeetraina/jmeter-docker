@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   master:
-    image: ajeetraina/jmeter-master
+    image: ajeetraina/apache-jmeter-master
     tty: true
     ports:
       - "60000"
@@ -17,7 +17,7 @@ services:
       placement:
           constraints: [node.role == manager]
   slave:
-    image: ajeetraina/jmeter-server
+    image: ajeetraina/apache-jmeter-server
     tty: true
     networks:
       - jm-network
@@ -25,7 +25,7 @@ services:
       - "50000"
       - "1099"
     deploy:
-      replicas: 3
+      mode: global
       restart_policy:
         condition: on-failure
         delay: 10s
