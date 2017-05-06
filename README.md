@@ -36,7 +36,7 @@ Login to master node and pull the repository:
 
 <b>Running Docker Compose</b>
 
-                $docker-compose up -d
+                sudo docker stack deploy -c docker-compose.yml myjm
 
 It will push jmeter-master to the master node and jmeter-server to the slave nodes and make it ready to start load using the external JMX file.
 
