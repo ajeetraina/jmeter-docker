@@ -1,58 +1,30 @@
-version: "3.4"
-
-volumes:
-  jmeter-storage:
-    external: true
-  jmeter-slave-storage:
-    external: true
-
-networks:
-  jmeter:
-
+version: "3.1"
 services:
-
   master:
-    image: images.gcihub.com/dig-jmeter-master
+    image: ajeetraina/apache-jmeter-master
     tty: true
     ports:
       - "60000"
-    volumes:
-      - jmeter-storage:/jmeter
-      - /root/jmeterScripts:/jmeterScript
+    networks:
+      - jm-network
     deploy:
-      resources:
-        limits:
-          cpus: '0.80'
-          memory: 12000M
-        reservations:
-          cpus: '0.50'
-          memory: 8000M
+      replicas: 1
       restart_policy:
         condition: on-failure
         delay: 10s
         max_attempts: 3
         window: 120s
       placement:
-        constraints: [node.role == manager]
-    networks:
-      - jmeter
-
+          constraints: [node.role == manager]
   slave:
-    image: images.gcihub.com/dig-jmeter-slave
+    image: ajeetraina/apache-jmeter-server
     tty: true
+    networks:
+      - jm-network
     ports:
       - "50000"
       - "1099"
-    volumes:
-      - jmeter-slave-storage:/jmeter
     deploy:
-      resources:
-        limits:
-          cpus: '0.90'
-          memory: 6000M
-        reservations:
-          cpus: '0.50'
-          memory: 4000M
       mode: global
       restart_policy:
         condition: on-failure
@@ -61,18 +33,5 @@ services:
         window: 120s
       placement:
         constraints: [node.role == worker]
-    networks:
-      - jmeter
-
-  telegraf:
-    image: telegraf
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /root/telegraf.conf:/etc/telegraf/telegraf.conf:ro
-    deploy:
-      mode: global
-      restart_policy:
-        condition: on-failure
-        delay: 10s
-        max_attempts: 3
-        window: 120s
+networks:
+  jm-network:
